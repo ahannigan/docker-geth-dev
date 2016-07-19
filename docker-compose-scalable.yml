@@ -1,0 +1,36 @@
+version: '2'
+
+networks:
+  main:
+    ipam:
+      config:
+        - subnet: 172.21.0.0/16
+          gatway: 172.21.0.1
+
+services:
+  bootnode:
+    image: ahannigan/geth-dev-mode:bootnode
+    networks:
+      main:
+        ipv4_address: 172.21.0.2
+
+  geth:
+    image: ahannigan/geth-dev:latest
+    networks:
+      - main
+    ports:
+      - "8545"
+    depends_on:
+      - bootnode
+    environment:
+      MINE_WHEN_NEEDED: "true"
+    command:
+      --networkid 90210
+      --port 30303
+      --rpc
+      --rpcport 8545
+      --rpcaddr 0.0.0.0
+      --rpcapi "eth,web3,admin,db,net,miner,personal"
+      --rpccorsdomain="*"
+      --unlock 0,1,2,3,4
+      --password /root/.ethereum/passwords
