@@ -27,4 +27,4 @@ docker-compose up -d
 docker-compose -f docker-compose-scalable.yml up -d
 docker-compose -f docker-compose-scalable.yml scale geth=3
 ```
-_Note_: when using the scalable version, you will have to run `docker ps` to get the exposed RPC port for each container as they will be random rather than `8545`.  - In the scalable compose data is also not stored in external volumes - removing containers means you lose your chain.
+_Note_: when using the scalable version, you will have to run `docker ps` to get the exposed RPC port for each container as they will be random rather than `8545`. In the scalable compose data is also not stored in external volumes - removing containers means you lose your chain.

@@ -12,7 +12,7 @@ networks:
 
 services:
   bootnode:
-    image: ahannigan/geth-dev-mode:bootnode
+    image: ahannigan/geth-dev:bootnode
     networks:
       main:
         ipv4_address: 172.21.0.2
