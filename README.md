@@ -7,7 +7,7 @@ This project runs [geth](https://github.com/ethereum/go-ethereum) in a container
 ##### Info:
 
 - For running a private ethereum network
-- The node has 5 built in accounts with preallocated ether balances
+- The node has 20 built in accounts with preallocated ether balances
 - Mining blocks only when needed can be activated by setting `MINE_WHEN_NEEDED` environment variable to true (default when running with compose)
 - All apis are exposed via RPC
 - Chain data is stored in a volume in standard `docker-compose.yml`
